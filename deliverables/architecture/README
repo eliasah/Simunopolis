@@ -1,0 +1,8 @@
+diagramme-systeme :
+	vision globale du système
+
+diagramme-etat :
+	représentation de l'état du jeu
+
+diagramme-moteur-de-simulation :
+	représentation du moteur de simulation
