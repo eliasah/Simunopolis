@@ -1,0 +1,104 @@
+\section{Introduction}
+
+\subsection{Objectif du document de spécification}
+
+Ce document de spécification produit des informations spécifiques et nécessaires pour définir efficacement les fonctionnalités, l'architecture et la conception du système afin de donner la direction à l'équipe de développement sur l'architecture du système à développer. Le document de spécification du produit est créé pendant la phase de planification du projet. Son public visé est le chef de projet, l'équipe de projet et l'équipe de développement et en partie le client. Les spécifications techniques et fonctionnelles de ce document sont réservées au chef de projet, l'équipe de projet et l'équipe de développement.
+
+\subsection{Portée du produit}
+
+Simunopolis est un jeu de gestion permettant de créer, modifier et prendre le contrôle d’une ville fictive. Soyez le maître incontesté d'une ville en temps réel de simulation. Créez votre propre ville de rêve ou de cauchemar, bidonville à partir rien. Tout dépendra de votre capacité de gestion.\\
+
+Vous serez le maire de ma ville et le gestionnaire suprême. Votre ville est peuplée de citoyens simulés. Vous pourriez construire des maisons, des appartements, des églises, des magasins et des usines. Vos citoyens vont se plaindre de choses comme les impôts, les maires, les urbanistes et les taxes. S'ils ne sont pas contents, ils se déplacent, vous collectez moins d'impôts, la ville se détériore.\\
+
+Dans ce qui suit, nous expliquerons le concept global de Simunopolis et donnerons des informations qui vous aideront concevoir et construire de meilleures villes.\\
+
+\subsection{Simulation de système}
+
+Simunopolis est logiciel de simulation, ou ce qu’on appelle aussi logiciel de simulation des systèmes. (System Simulation en anglais)\\
+
+La simulation des systèmes est un ensemble de techniques qui utilisent des ordinateurs pour imiter les opérations des différentes tâches du monde réel ou des procédés par simulation. Les ordinateurs sont utilisés pour générer des modèles numériques, ayant pour but de décrire ou d'afficher une interaction complexe entre plusieurs variables à l'intérieur d'un système. La complexité du système découle de la nature stochastique (probabiliste) des événements, des règles de l'interaction des éléments et de la difficulté à percevoir le comportement des systèmes comme un tout avec le passage du temps.\\
+
+Nous vous fournissons un ensemble de règles et d’outils qui vous permettrons de décrire, de créer et de contrôler le système. Dans le cas de Simunopolis le système est une ville.\\
+
+Le défi de jouer à un jeu de simulation de système est de comprendre comment fonctionne le système et de prendre le contrôle de celui-ci. En tant que maître du système, vous êtes libre d'utiliser les outils pour créer et contrôler un nombre illimité de systèmes (dans ce cas, les villes) dans le cadre et les limites prévues par les règles.\\
+
+\subsection{Règles d'évolution}
+Les règles à apprendre sont basées sur la gestion urbaine de divers facteurs tels que:
+\begin{itemize}
+\item Facteurs humains: l'espace résidentiel et les équipements, la disponibilité des emplois et la qualité de vie.
+\item Facteurs économiques: la valeur du terrain, l'espace industriel et commercial, le chômage, les marchés internes et externes, l'énergie électrique, la fiscalité et le financement des services de la ville.
+\item Facteurs politiques: l'opinion publique, le zonage, votre performance de gestion en tant que maire de la ville.
+\item Facteurs de survie: des stratégies pour faire face aux catastrophes, la criminalité et la pollution.
+\end{itemize}
+
+\paragraph{}
+La dernière règle fera partie d'une éventuelle évolution prévue pour le jeu et ne sera donc pas traitée pour le moment.
+
+\subsection{Règles du jeu}
+Les outils de gestion vous donnent la capacité de planifier, aménager, zoner, construire, détruire et de gérer votre ville.
+
+\begin{itemize}
+\item Plan : systèmes de description physiques et démographiques de la ville entière.
+\subitem Evolution : aperçu cartographique du plan.
+\item Conception: Créer des zones industrielles et d'habitations, ainsi que des réseaux de transports, des routes et même des espaces de loisirs.
+\item Zone : limites de zonage. Définir les parcs, les zones résidentielles, commerciales et industrielles.
+\item Construire : Placer des routes, rails, aéroports, ports, casernes de pompiers et de police, des stades, et des centrales électriques.
+\item Aménagement de territoire et destruction: Détruire les bâtiments, les fleuves, les routes, les forêts.
+\item Gérer : Dans un premier temps, la gestion des renseignements concernant la ville, tels le trafic, l'état du réseau électrique, les taxes, etc. se feront dans un menu contextuel. \subitem Evolution : interface graphique
+\end{itemize}
+
+\paragraph{Les zones}
+En temps que maire de la ville, vous devez construire des zones résidentielles, industrielles et commerciales. Les zones résidentielles permettent à de nouveaux habitants de venir s'installer dans votre ville, et les zones industrielles et commerciales permettent de leur fournir un emploi.
+\paragraph{L'alimentation des zones}
+Afin d'être alimentées en électricité, les zones doivent être reliées à des centrales via des lignes électriques. Toutes les zones adjacentes à une zone déjà alimentée en électricité sont elles-même automatiquement alimentées.
+\paragraph{Les routes}
+Une zone résidentielle doit être connectée à une zone commerciale ou industrielle par des routes, faute de quoi les habitants de cette zone ne trouveront pas d'emploi et quitteront la ville. De même, les zones industrielles et commerciales ne se développeront pas et ne rapporteront pas d'argent.
+\paragraph{Les casernes de pompier}
+Il arrive que des incendies se déclenchent et ravagent une partie de la ville. Placer des casernes de pompier permet de limiter les dégâts causés, voire d'empêcher le départ des incendies.
+\paragraph{Les postes de police}
+Plus la ville évolue, plus le taux de criminalité augmente. Si ce taux est trop élevé, les habitants quitteront la ville, qui perdra de sa valeur. Placer des postes de police permet de régulariser le taux de criminalité.
+\paragraph{Le budget}
+Le maire peut choisir de modifier les taxes à réclamer aux habitants. Des taxes élevées feront fuire les habitants, mais des taxes trop faibles rapporteront peu d'argent et empêcheront la ville d'évoluer, faute de moyens.\\
+Le maire peut aussi choisir de modifier le budget attribué à l'entretien des routes, aux postes de police et aux casernes de pompiers. Tout comme pour les taxes, il est important de trouver un dosage qui permette à la fois au maire de faire des bénéfices, tout en évitant d'attribuer un budget trop bas aux services, ce qui entraînerait une hausse d'incendies, du taux de criminalité et une dégradation des infrastructures.
+
+%\paragraph{}
+%Mais le plus important de tout sera le simulateur lui-même. 
+%Les citoyens de Simunopolis se déplaceront, construiront des maisons, des hôpitaux, des églises, des magasins et des usines dans les zones que vous fournissez, ou sortiront à la recherche d’un emploi ou d'une vie meilleure ailleurs. Le succès de la ville est basé sur la qualité de la ville que vous allez concevoir et gérer.
+
+\subsection{Le simulateur}
+Le simulateur agit sur le système en permanence, en fonction de la gestion de la ville par le maire et de facteurs externes.
+
+\subsubsection{Les zones}
+La répartition des zones a une influence sur le jeu. Si une zone n'est pas reliée à une source d'énergie, elle est considérée comme improductive.
+\paragraph{Les zones résidentielles}
+Lorsque des zones résidentielles sont disponibles, la population augmente et des habitations se construisent. La population peut diminuer avec le temps si les taxes et le chômage sont trop élevés, la pollution ou le taux de criminalité trop forts.
+\paragraph{Les zones commerciales}
+Lorsque des habitants sont disponibles pour y travailler, les zones commerciales se développent et rapportent de l'argent au maire.
+\paragraph{Les zones industrielles}
+Lorsque des habitants sont disponibles pour y travailler, les zones indeustrielles se développent et rapportent de l'argent au maire. Elles augmentent le taux de pollution de la ville.
+
+\subsubsection{Les infrastructures}
+\paragraph{Les routes}
+Si le réseau routier est mal agencé, le simulateur génère un fort trafic routier, ce qui entraîne une augmentation de la pollution et une diminution de la population.
+
+\subsubsection{Le budget}
+Un budget est attribué par le maire à l'entretien des routes. Si ce budget est faible, les routes se détèrioreront régulièrement et le maire devra reconstruire les zones abîmées. Si ce budget est élevé, les routes seront bien entretenues mais les fonds de la ville seront moins élevés.\\
+Une partie du budget est aussi dédiée aux postes de police et aux casernes de pompiers. Si un faible budget leur est attribué, leur efficacité sera diminuée (le taux de criminalité augmentera et les incendies seront moins rapidement maîtrisés).
+
+\subsubsection{Le taux de criminalité}
+Plus la population de la ville est dense, plus le taux de criminalité évolue. La présence de postes de police diminue ce taux, seulement dans le cas où le budget qui leur est attribué est suffisant.
+
+\subsubsection{Les catastrophes}
+Différents types de catastrophes peuvent se déclencher et causer des ravages sur la ville.
+\begin{itemize}
+\item Des incendies : les dégâts sur la ville seront plus importants si elle n'est pas correctement couverte par les casernes de pompiers.
+\item Des tornades : les dégâts causés sont indépendants de la gestion de la ville par le maire. Celui-ci peut seulement reconstruire les zones abîmées par la tornade.
+\item Des inondations : les zones les plus touchées sont celles proches des rives. Plus il y a de zones en bord d'eau, plus les dégâts risquent d'être importants.
+\end{itemize}
+
+\subsection{Le but du jeu}
+
+TODO
+
+\subsection{References}
+IEEE Std 830-1998 Recommended Practice for Software Requirements Specifications
