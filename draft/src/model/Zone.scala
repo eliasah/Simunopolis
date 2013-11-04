@@ -1,4 +1,4 @@
-package simunopolis
+package model
 
 abstract class Zone extends ZoneActions {
 

@@ -1,15 +1,13 @@
-package simunopolis
+package model
 
 object Main extends App {
-
   override def main(args: Array[String]) {
-
-    val c = new City("Smallville")
-    val rz = new ResidentialZone(1,1)
+    val c = City.apply("Smallville")
+    val rz = new ResidentialZone(2,2)
+    // println(rz.coordx,rz.coordy)
 
     c.addZone(rz)
     
-    println(c)
+    c.printmap()
   }
-
 }

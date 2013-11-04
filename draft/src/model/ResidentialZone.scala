@@ -1,8 +1,10 @@
-package simunopolis
+package model
 
 class ResidentialZone(x: Int, y: Int) extends Zone {
+    coordx = x
+    coordy = y
 
   override def toString(): String = {
-    return "Zone Résidentielle située en x = " + coordx + " et y = " + coordy
+    return "R"
   }
 }

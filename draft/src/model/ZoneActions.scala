@@ -1,4 +1,4 @@
-package simunopolis
+package model
 
 trait ZoneActions {
 

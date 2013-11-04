@@ -1,26 +1,35 @@
 package scalatest
 
 import org.scalatest._
-import simunopolis.City
-import simunopolis.ResidentialZone
+import model.City
+import model.ResidentialZone
 
-class CitySpec extends FlatSpec {
-  val c = new City("MyCity")
+class CitySpec extends FlatSpec with BeforeAndAfter {
+  var c : City = _
+  var rz : ResidentialZone = _
+
+  before {
+	c = City.apply("SmallVille")
+    rz = new ResidentialZone(2, 2)
+  }
 
   "A City" should "initialise a map along with the rest of its property" in {
-    assert(c.name === "MyCity")
+    assert(c.name === "SmallVille")
     assert(c.population === 0)
   }
 
-  it should "addZone()" in {
-    var z = new ResidentialZone(1,1)
-    c.addZone(z)
-    assert(!c.zones.isEmpty)
-    assert(c.zones(1)(1) === z)
+  "addZone method" should "add a zone the City" in {
+    c.addZone(rz)
+    assert(!c.map.isEmpty)
   }
-  
-  it should "population++" in {
-    c.incrementepop()
+
+  "printMap method" should "show the map of the city" in {
+    c.printmap
+  }
+
+  ignore should "population++" in {
+    c.incrementpop()
     assert(c.population === 1)
   }
+
 }
