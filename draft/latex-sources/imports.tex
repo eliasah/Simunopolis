@@ -1,0 +1,39 @@
+\usepackage[utf8]{inputenc}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{tikz}
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{afterpage}
+\usetikzlibrary{arrows}
+%\input{Javalisting}
+
+\usepackage[francais]{babel}
+\selectlanguage{french}
+
+\renewcommand\abstractname{Résumé}
+
+% redefine the REQUIRE and ENSURE commands
+\renewcommand{\algorithmicrequire}{\textbf{Entrée :}}
+\renewcommand{\algorithmicensure}{\textbf{Sortie:}}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+%\newtheorem{name}{Printed output}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prf}{Proof}
+\theoremstyle{plain}
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{.125in}
+\setlength{\textwidth}{6.25in}
+\providecommand{\abs}[1]{\lvert#1\rvert}

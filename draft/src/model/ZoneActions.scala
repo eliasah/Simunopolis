@@ -1,0 +1,5 @@
+package simunopolis
+
+trait ZoneActions {
+
+}
