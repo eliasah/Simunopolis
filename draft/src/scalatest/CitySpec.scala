@@ -5,12 +5,11 @@ import model.City
 import model.ResidentialZone
 
 class CitySpec extends FlatSpec with BeforeAndAfter {
-  var c : City = _
-  var rz : ResidentialZone = _
+  var c: City = _
+  var rz: ResidentialZone = _
 
   before {
-	c = City.apply("SmallVille")
-    rz = new ResidentialZone(2, 2)
+    c = City.apply("SmallVille")
   }
 
   "A City" should "initialise a map along with the rest of its property" in {
@@ -18,16 +17,25 @@ class CitySpec extends FlatSpec with BeforeAndAfter {
     assert(c.population === 0)
   }
 
-  "addZone method" should "add a zone the City" in {
-    c.addZone(rz)
+  "ResidentialZone" should "initialise a residential zone" in {
+    rz = new ResidentialZone()
+    assert(rz.pollution === 1)
+    assert(rz.density === 20)
+    assert(rz.value === 100)
+  }
+
+  "addZone(rz : ResidentialZone) method" should "add a zone the City" in {
+    c.addZone(rz, 2, 2)
     assert(!c.map.isEmpty)
   }
 
-  "printMap method" should "show the map of the city" in {
+  "printmap" should "show the map of the city" in {
+    rz = new ResidentialZone()
+    c.addZone(rz, 2, 2)
     c.printmap
   }
 
-  ignore should "population++" in {
+  "incrementpops" should "population++" in {
     c.incrementpop()
     assert(c.population === 1)
   }

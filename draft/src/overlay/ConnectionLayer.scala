@@ -1,7 +1,7 @@
 package overlay
 import model._
 
-class ConnexionLayer extends Layer {
+class ConnexionLayer {
   def addZone(z: Zone): Unit = {
 
   }

@@ -2,7 +2,7 @@ package overlay
 import model._
 import scala.collection.mutable.ListBuffer
 
-class ElectricalLayer extends Layer {
+class ElectricalLayer {
   type Wire = Pair[Zone, Zone]
 
   var production: ListBuffer[Zone] = ListBuffer()

@@ -1,9 +1,13 @@
 package overlay
+import model._
 
-class LayerManager {
-  var eleclay: ElectricalLayer = new ElectricalLayer
-  var pollay: PollutionLayer = new PollutionLayer
-  var waterlay: WaterPipes = new WaterPipes
-  var connlay: ConnexionLayer = new ConnexionLayer
-  
+class LayerManager(l: Layers) {
+
+  def applychanges(z:Zone,x:Int,y:Int): Unit = {
+    l.connlay.addZone(z)
+    l.eleclay.addZone(z)
+    l.pollay.addZone(z)
+    l.waterlay.addZone(z)
+  }
+
 }

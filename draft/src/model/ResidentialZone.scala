@@ -1,9 +1,10 @@
 package model
 
-class ResidentialZone(x: Int, y: Int) extends Zone {
-    coordx = x
-    coordy = y
-
+class ResidentialZone extends Zone {
+  density = 20
+  value = 100
+  pollution = 1
+  
   override def toString(): String = {
     return "R"
   }

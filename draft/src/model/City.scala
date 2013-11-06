@@ -13,27 +13,25 @@ class City(n: String) {
   var name: String = n
   var population: Int = 0
   var map: Array[Array[Zone]] = Array.ofDim[Zone](12, 12)
-  var overlays: ListBuffer[Layer] = ListBuffer[Layer]()
-  var layerManager = new LayerManager()
-  
+  var layers = new Layers
+  var layerManager = new LayerManager(layers)
+  var budget = Budget
+
   def time() = 0
-  
-  def addZone(z: Zone): Unit = {
-    val x = z.getx()
-    val y = z.gety()
+
+  def addZone(z: Zone, x: Int, y: Int): Unit = {
     map(x)(y) = z
+    layerManager.applychanges(z,x,y)
     // TODO notifyMS()
   }
 
-  def removeZone(z: Zone): Unit = {
-    val x = z.getx()
-    val y = z.gety()
+  def removeZone(z: Zone, x: Int, y: Int): Unit = {
     map(x)(y) = null
     // TODO notifyMS()
   }
 
   def incrementpop(): Unit = {
-    population = population + 1
+    population += 1
   }
 
   def modifname(nname: String): Unit = {
@@ -53,13 +51,11 @@ class City(n: String) {
     }
   }
 
-    override def toString(): String = {
+  override def toString(): String = {
     var s = "name :" + name + "\n"
     for (z <- map)
       if (z != null) s += z + " "
     return s
   }
 
-
-  
 }

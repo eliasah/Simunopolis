@@ -1,7 +1,7 @@
 package overlay
 import model._
 
-class WaterPipes extends Layer {
+class WaterPipes {
   def addZone(z: Zone): Unit = {
 
   }
