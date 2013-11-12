@@ -22,12 +22,21 @@ class GameMenuBar(frame: Frame, city :City) extends MenuBar {
       City.apply("New City")
       println("New City Created")
     }
+    
+    val chooser = new FileChooser
+    
+    val savAct = Action("Save") {
+      val response = chooser.showSaveDialog(null)
+    }
+
+    val opnAct = Action("Load Game") {
+      val response = chooser.showOpenDialog(null)
+    }
+    
   
       contents += new Menu("File") {
         contents += new MenuItem(newAct)
-        contents += new MenuItem(Action("Save") { // (An action item)
-          println("Action '" + frame.title + "' invoked")
-        })
+        contents += new MenuItem(savAct)
         contents += new Separator
         contents += new CheckMenuItem("Check me")
         contents += new CheckMenuItem("Me too!")
