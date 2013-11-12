@@ -1,4 +1,4 @@
-package gui
+package model
 
 import scala.swing._
 import javax.swing.border.CompoundBorder
@@ -9,20 +9,22 @@ import scala.swing.event.ButtonClicked
 import scala.swing.event.EditDone
 import scala.swing.event.ValueChanged
 import scala.swing.event.SelectionChanged
-
-import model.City
+import scala.swing.BorderPanel.Position.Center
+import scala.swing.BorderPanel.Position.South
+import scala.swing.TabbedPane.Page
 
 object FirstSwingApp extends SimpleSwingApplication {
-	// var city = City.apply("Springfield")
-  
+  var city = City.apply("Springfield")
+
   def top = new MainFrame {
-    
+    title = "Simunopolis"
+
     // Actions 
     val exitAct = Action("Exit") { quit() }
-    val newAct = Action("New Game"){} 
-    
-    
-    title = "Simunopolis"
+    val newAct = Action("New Game") {
+      city = City.apply("New City")
+      println("New City Created")
+    }
 
     /*
      * Create a menu bar with a couple of menus and menu items and 
@@ -30,7 +32,7 @@ object FirstSwingApp extends SimpleSwingApplication {
      */
     menuBar = new MenuBar {
       contents += new Menu("File") {
-        contents += new MenuItem(Action("New Game"){} )
+        contents += new MenuItem(newAct)
         contents += new MenuItem(Action("Save") { // (An action item)
           println("Action '" + title + "' invoked")
         })
@@ -49,7 +51,7 @@ object FirstSwingApp extends SimpleSwingApplication {
       contents += new Menu("Help") {
         contents += new MenuItem("About")
       }
-      
+
     }
 
     /*
