@@ -1,8 +1,9 @@
 package scalatest
 
 import org.scalatest._
-import model.City
-import model.ResidentialZone
+import game.ResidentialZone
+import game.City
+
 
 class CitySpec extends FlatSpec with BeforeAndAfter {
   var c: City = _

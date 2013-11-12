@@ -1,5 +1,6 @@
 package overlay
-import model._
+
+import game.Zone
 
 class LayerManager(l: Layers) {
 

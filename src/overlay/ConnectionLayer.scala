@@ -1,5 +1,5 @@
 package overlay
-import model._
+import game._
 
 class ConnexionLayer {
   def addZone(z: Zone): Unit = {

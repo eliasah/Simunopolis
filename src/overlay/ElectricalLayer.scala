@@ -1,5 +1,5 @@
 package overlay
-import model._
+import game._
 import scala.collection.mutable.ListBuffer
 
 class ElectricalLayer {
