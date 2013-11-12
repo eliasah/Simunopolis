@@ -1,5 +1,0 @@
-package overlay
-
-trait LayerActions {
-
-}
