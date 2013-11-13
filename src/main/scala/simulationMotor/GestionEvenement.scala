@@ -1,0 +1,5 @@
+package simulationMotor
+
+trait GestionEvenement {
+
+}
