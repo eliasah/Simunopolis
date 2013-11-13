@@ -1,0 +1,16 @@
+Que fait le moteur de simulation ?
+déclenche des évènements
+modifie les paramètres du budget
+gère le temps : une classe Timer
+envoie des messages d'information relatifs à la ville (zone non reliée aux routes) : à quelle fréquence ? basé sur le temps du jeu
+
+Que fait le modèle ?
+gère l'ajout de zones (vérifications couches + budget, mise à jour des couches)
+gère la suppression de zones (mise à jour des couches)
+
+Que fait l'interface graphique ?
+se met à jour quand le modèle notifie des changements
+permet au joueur d'ajouter des zones et des réseaux
+permet au joueur de supprimer des zones et des réseaux
+permet au joueur de paramétrer le budget 
+
