@@ -6,6 +6,6 @@ class ConnexionLayer {
 
   }
   
-  def addWire(x1:Int,y1:Int,x2:Int,y2:Int): Unit = {}
+  def addWire(coorBegin:Coordinates,coorEnd:Coordinates): Unit = {}
 
 }

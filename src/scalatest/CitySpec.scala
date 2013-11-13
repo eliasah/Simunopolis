@@ -3,6 +3,7 @@ package scalatest
 import org.scalatest._
 import game.ResidentialZone
 import game.City
+import game.Coordinates
 
 
 class CitySpec extends FlatSpec with BeforeAndAfter {
@@ -26,13 +27,13 @@ class CitySpec extends FlatSpec with BeforeAndAfter {
   }
 
   "addZone(rz : ResidentialZone) method" should "add a zone the City" in {
-    c.addZone(rz, 2, 2)
+    c.addZone(rz,new Coordinates(2,2))
     assert(!c.map.isEmpty)
   }
 
   "printmap" should "show the map of the city" in {
     rz = new ResidentialZone()
-    c.addZone(rz, 2, 2)
+    c.addZone(rz,new Coordinates(2,2))
     c.printmap
   }
 

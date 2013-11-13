@@ -7,8 +7,8 @@ object Main extends App {
     val pp = new PowerPlant
     // println(rz.coordx,rz.coordy)
 
-    c.addZone(rz, 2, 2)
-    c.addZone(pp,5,5)
+    c.addZone(rz, new Coordinates(2,2))
+    c.addZone(pp, new Coordinates(5,5))
     c.printmap()
     
     println(c.layers.eleclay.toString)

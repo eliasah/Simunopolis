@@ -19,9 +19,9 @@ class City(n: String) {
 
   def time() = 0
 
-  def addZone(z: Zone, x: Int, y: Int): Unit = {
-    map(x)(y) = z
-    layerManager.applychanges(z,x,y)
+  def addZone(z: Zone, coor : Coordinates): Unit = {
+    map(coor.x)(coor.y) = z
+    layerManager.applychanges(z,coor.x,coor.y)
     // TODO notifyMS()
   }
 
