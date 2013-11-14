@@ -1,5 +1,0 @@
-package simulationMotor
-
-trait GestionReseaux {
-
-}

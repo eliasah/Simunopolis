@@ -1,5 +1,0 @@
-package simulationMotor
-
-class GestionPopulation {
-
-}
