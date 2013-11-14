@@ -1,0 +1,4 @@
+SbtEclipse is a plugin for sbt to create Eclipse project definitions. 
+
+To install it follow the installation description on this link:
+https://github.com/typesafehub/sbteclipse#for-the-impatient
