@@ -1,0 +1,6 @@
+Timer doit être mis dans une classe pour pouvoir la paramétrer. (Actuellement dans la classe Mayor)
+
+Séparation entre le simulateur et le maire, le maire ne doit pas avoir accès au simulateur.
+
+Les vérifications pour mettre des zones ont été mises dans la classe mayor, le moteur de simulation simule juste les données de la ville.
+(je considère que le maire peut vérifier lui-même...)
