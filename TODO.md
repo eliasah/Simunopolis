@@ -1,0 +1,1 @@
+- mettre au propre les diagrammes qui se trouvent dans [deliverables/architecture]
