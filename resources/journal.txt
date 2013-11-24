@@ -1,0 +1,22 @@
+=========
+23/11/13:
+- redéfinition du use case (deliverables/requirements/Use case.pdf)
+- redéfinition de l'UML (deliverables/architecure/uml.png)
+
+=========
+16/11/13:
+Résumé de la réunion :
+Nous avons commencé par un brainstorming rapide sur le thème de SimCity.
+Nous avons pu identifier différentes actions possibles dans le jeu, et les représenter sous forme de :
+- cas d'utilisation
+- diagrammes de séquence
+Nous avons ensuite essayé de créer un diagramme de classe, mais nous avons été confrontés à plusieurs problèmes :
+- inclure une référence vers City dans Mayor ? inclure City dans SimulationEngine ?
+
+A faire :
+(1) Dessiner sur logiciel les diagrammes et les poster sur Git
+(2) Réfléchir à l'existence d'autres diagrammes de séquence
+(3) Proposer un diagramme de classe (même s'il contient des problèmes) :
++ cohérent avec les diagrammes
++ contenant les méthodes et les attributs
++ avec une note explicative pointant sur les problèmes du diagramme
