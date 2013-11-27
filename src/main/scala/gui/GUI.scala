@@ -2,12 +2,11 @@ package gui
 
 import scala.swing._
 import java.awt.Dimension
-import java.lang.reflect.Field
 import scala.swing.event.MouseClicked
 import scala.swing.event.MouseClicked
 import scala.swing.event.MouseClicked
 
-object test extends SimpleSwingApplication {
+object GUI extends SimpleSwingApplication {
   val data = Array.ofDim[Color](50, 50)
   var batiment = 0;
   def top = new MainFrame {
