@@ -15,18 +15,28 @@ class City(n: String) {
   var map: Array[Array[Zone]] = Array.ofDim[Zone](12, 12)
   var layers = new Layers
   var layerManager = new LayerManager(layers)
-  var budget = Budget
+  var budget = new Budget(20000)
 
   def time() = 0
 
-  def addZone(z: Zone, coor : Coordinates): Unit = {
-    map(coor.x)(coor.y) = z
-    layerManager.applychanges(z,coor)
+  def addZone(z: Zone, coords: Coordinates): Boolean = {
+    map(coords.x)(coords.y) = z
+    layerManager.applychanges(z, coords)
     // TODO notifyMS()
+    true // FIXME
+  }
+
+  /**
+   * Detruit la zone de la ville associee aux coordonnees fournies
+   * @param coords les coordonnees de la zone a detruire
+   * @return true si la zone a ete detruite, false sinon
+   */
+  def destroyZone(coords: Coordinates): Boolean = {
+    return false // FIXME
   }
 
   def addWire(): Unit = {}
-  
+
   def removeZone(z: Zone, x: Int, y: Int): Unit = {
     map(x)(y) = null
     // TODO notifyMS()
