@@ -10,3 +10,12 @@
   	  -> Add use case and relation case :
 	     God must retrieve info about present state
 - Redistribute tasks to implement the Game.
+
+2013/12/01 :
+- Complete the Diagram Class : missing methods, classes.
+- Rewrite the sequence diagram from page 2 of the Diagram Class document.
+- Try to implement the Diagram Class :
+	  -> Focus on the Clients (Players, Zone Creator and GUI)
+	  -> Abstract class Zone (Component), Land (Composite) and LeafZone (ResidentialZone, IndustrialZone, etc.)
+	  -> Subject-Observer design pattern considering page 2 from Diagram Class document.
+	   
