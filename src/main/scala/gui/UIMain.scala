@@ -99,13 +99,13 @@ object UIMain extends SimpleSwingApplication {
         }
 
         pages += new Page("Buttons", buttons)
-        
+
         // pages += new Page("GridBag", GridBagDemo.ui)
         // pages += new Page("Converter", CelsiusConverter2.ui)
         // pages += new Page("Tables", TableSelection.ui)
         // pages += new Page("Dialogs", Dialogs.ui)
         // pages += new Page("Combo Boxes", ComboBoxes.ui)
-        
+
         pages += new Page("Split Panes",
           new SplitPane(Orientation.Vertical, new Button("Hello"), new Button("World")) {
             continuousLayout = true
