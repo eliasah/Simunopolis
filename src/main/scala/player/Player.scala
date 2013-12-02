@@ -6,18 +6,31 @@ import scala.collection.mutable.HashMap
 import time.Time
 
 class Player(cityName: String) {
-
+  //A REVOIR
+  /**
+   * Commande des destructions et construction 
+   */
+  abstract class Command
+  case class Empty extends Command
+  case class House extends Command
+  case class Commerce extends Command
+  case class Industry extends Command
+  case class Road extends Command
+  case class Destroy extends Command
   /**
    * Chargement des couts de construction et destruction.
    */
   val prices = new HashMap[String, Int]
-  Source.fromFile("conf/prices.conf").getLines.foreach {
+  prices += ("Commerce" -> 100)
+  prices += ("Industry" -> 200)
+  prices += ("House" -> 200)
+  /*Source.fromFile("conf/prices.conf").getLines.foreach {
     line =>
       val words = line.split(" ")
       val zoneType: String = words(0)
       val price: Int = new Integer(words(1))
       prices += (zoneType -> price)
-  }
+  }*/
 
   val city = City.apply(cityName)
   val time = new Time
@@ -28,14 +41,19 @@ class Player(cityName: String) {
    * @param c les coordonnees de la zone a ajouter
    * @return true si la zone a ete ajoutee, false sinon
    */
-  def reserveZone(z: Zone, c: Coordinates): Boolean = {
+  def reserveZone(z: Command, c: Coordinates): Boolean = {
     val price = prices(z match {
-      case cz: CommercialZone => "commercial"
-      case iz: IndustrialZone => "industrial"
-      case rz: ResidentialZone => "residential"
+      case cz: Commerce => "Commerce"
+      case iz: Industry => "Industry"
+      case rz: House => "House"
     })
-    if (city.budget canPay price)
-      return city addZone (z, c)
+    println(price)
+    if (city.budget canPay price) {
+      city.budget pay price
+      println("Appel Abstract Constructuin a faire pour "+z+" !!!!!!!!")
+    	return true
+    }
+    
     return false
   }
 
@@ -50,9 +68,9 @@ class Player(cityName: String) {
       return city destroyZone (c)
     return false
   }
-  
+
   def slowDown() = time.slowDown()
-  
+
   def speedUp() = time.speedUp()
 
 }

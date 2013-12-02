@@ -15,15 +15,15 @@ import scala.swing.TabbedPane.Page
 import game.City
 
 object FirstSwingApp extends SimpleSwingApplication {
-  var city = City.apply("Springfield")
+   var city = new City("Springfield")
 
   def top = new MainFrame {
     title = "Simunopolis"
-
+ 
     // Actions 
     val exitAct = Action("Exit") { quit() }
     val newAct = Action("New Game") {
-      city = City.apply("New City")
+      city = new City("New City")
       println("New City Created")
     }
 
