@@ -6,7 +6,7 @@ import scala.collection.mutable.HashMap
 import time.Time
 
 class Player(cityName: String) {
-  //A REVOIR
+  //A REVOIR 
   /** 
    * Commande des destructions et construction 
    */

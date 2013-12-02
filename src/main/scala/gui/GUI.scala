@@ -37,14 +37,17 @@ class GUI(mayor: Player) extends SimpleSwingApplication {
     title = "Simunopolis";
     preferredSize_=(new Dimension(600, 600));
     var budgetLabel: Label = new Label("    20000")
+    // Panel principale
     var a = new FlowPanel() {
       var a = new FlowPanel() {
+        //label pour l'affichage du nombre de population et de budget
         contents += new Label("Population ")
         contents += new Label("    0")
         contents += new Label("      Budget ")
         contents += budgetLabel
       }
       contents += a;
+      //panel contenant le graphique
       var graph = new DataPanel(data) {
         //ajout des listerners sur les mouvements de la souris et du click
         listenTo(this.mouse.clicks);
@@ -78,7 +81,6 @@ class GUI(mayor: Player) extends SimpleSwingApplication {
               case x: mayor.House =>
                 mayor.reserveZone(new mayor.House,
                   new Coordinates((e.point.getX() / 10).toInt, (e.point.getY() / 10).toInt))
-
               case y: mayor.Commerce =>
                 mayor.reserveZone(new mayor.Commerce,
                   new Coordinates((e.point.getX() / 10).toInt, (e.point.getY() / 10).toInt))
@@ -87,9 +89,11 @@ class GUI(mayor: Player) extends SimpleSwingApplication {
                   new Coordinates((e.point.getX() / 10).toInt, (e.point.getY() / 10).toInt))
               case _ => false
             }
+            //construction du batiment du bouton associe
             if (build) {
               data((e.point.getX() / 10).toInt)((e.point.getY() / 10).toInt) = color;
-              budgetLabel.text_=("    "+mayor.city.budget.getbudget().toString)
+              // maj du label du budget
+              budgetLabel.text_=("    " + mayor.city.budget.getbudget().toString)
             }
             xold = e.point.getX().toInt
             yold = e.point.getY().toInt
