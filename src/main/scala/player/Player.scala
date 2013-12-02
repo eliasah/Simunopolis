@@ -7,7 +7,7 @@ import time.Time
 
 class Player(cityName: String) {
   //A REVOIR
-  /**
+  /** 
    * Commande des destructions et construction 
    */
   abstract class Command
