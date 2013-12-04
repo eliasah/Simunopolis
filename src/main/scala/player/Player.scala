@@ -5,6 +5,9 @@ import scala.io.Source
 import scala.collection.mutable.HashMap
 import time.Time
 
+/**
+ * author : Isabelle Richard
+ */
 class Player(cityName: String) {
   //A REVOIR 
   /** 
