@@ -1,5 +1,7 @@
 package gui
-
+/**
+ * author: Christian Chiev
+ * */
 import scala.swing.Panel
 import java.awt.Graphics2D
 import java.awt.Color

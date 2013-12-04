@@ -5,7 +5,7 @@ import java.awt.Dimension
 import scala.swing.event.MouseClicked
 import scala.swing.event.MouseClicked
 import scala.swing.event.MouseClicked
-import sun.nio.fs.AbstractAclFileAttributeView
+//import sun.nio.fs.AbstractAclFileAttributeView
 import scala.swing.event.MouseDragged
 import scala.swing.event.MouseReleased
 import player.Player
