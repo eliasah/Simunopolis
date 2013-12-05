@@ -4,22 +4,23 @@ import game._
 import scala.io.Source
 import scala.collection.mutable.HashMap
 import time.Time
+import enumeration.BuildType
 
 /**
  * author : Isabelle Richard
  */
 class Player(cityName: String) {
   //A REVOIR 
-  /** 
-   * Commande des destructions et construction 
+  /**
+   * Commande des destructions et construction
    */
-  abstract class Command
+  /*abstract class Command
   case class Empty extends Command
   case class House extends Command
   case class Commerce extends Command
   case class Industry extends Command
   case class Road extends Command
-  case class Destroy extends Command
+  case class Destroy extends Command*/
   /**
    * Chargement des couts de construction et destruction.
    */
@@ -44,19 +45,20 @@ class Player(cityName: String) {
    * @param c les coordonnees de la zone a ajouter
    * @return true si la zone a ete ajoutee, false sinon
    */
-  def reserveZone(z: Command, c: Coordinates): Boolean = {
-    val price = prices(z match {
-      case cz: Commerce => "Commerce"
-      case iz: Industry => "Industry"
-      case rz: House => "House"
-    })
+  def reserveZone(z: BuildType.Value, c: Coordinates): Boolean = {
+    val price = prices(
+      z match {
+        case  BuildType.Commerce => "Commerce"
+        case  BuildType.Industry => "Industry"
+        case  BuildType.House => "House"
+      });
     println(price)
     if (city.budget canPay price) {
       city.budget pay price
-      println("Appel Abstract Constructuin a faire pour "+z+" !!!!!!!!")
-    	return true
+      println("Appel Abstract Constructuin a faire pour " + z + " !!!!!!!!")
+      return true
     }
-    
+
     return false
   }
 
