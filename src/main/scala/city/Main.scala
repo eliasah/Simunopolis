@@ -15,7 +15,12 @@ object Main extends App {
 
     // Display Visitor Test
     println("Visitor ")
-    val tree2 = Land(List(ResidentialZone("1"), ResidentialZone("2"), CommercialZone("3")))
+    val s = Catastrophe()
+    val rz1 = ResidentialZone
+    val rz2 = ResidentialZone
+    val cz3 = CommercialZone
+
+    val tree2 = Land(List(rz1, rz2, cz3))
     val v = new DisplayZoneVisitor
     tree2.accept(v)
     println("------")
