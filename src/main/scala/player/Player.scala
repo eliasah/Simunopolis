@@ -4,7 +4,7 @@ import game._
 import scala.io.Source
 import scala.collection.mutable.HashMap
 import time.Time
-import enumeration.BuildType
+import enumeration._
 
 /**
  * author : Isabelle Richard
@@ -14,13 +14,7 @@ class Player(cityName: String) {
   /**
    * Commande des destructions et construction
    */
-  /*abstract class Command
-  case class Empty extends Command
-  case class House extends Command
-  case class Commerce extends Command
-  case class Industry extends Command
-  case class Road extends Command
-  case class Destroy extends Command*/
+
   /**
    * Chargement des couts de construction et destruction.
    */
@@ -48,10 +42,10 @@ class Player(cityName: String) {
   def reserveZone(z: BuildType.Value, c: Coordinates): Boolean = {
     val price = prices(
       z match {
-        case  BuildType.Commerce => "Commerce"
-        case  BuildType.Industry => "Industry"
-        case  BuildType.House => "House"
-      });
+        case BuildType.Commerce => "Commerce"
+        case BuildType.Industry => "Industry"
+        case BuildType.House => "House"
+      })
     println(price)
     if (city.budget canPay price) {
       city.budget pay price
@@ -68,9 +62,9 @@ class Player(cityName: String) {
    * @return true si la zone a ete detruite, false sinon
    */
   def destroy(c: Coordinates): Boolean = {
-    val price = prices("destruction")
+    /*val price = prices("destruction")
     if (city.budget canPay price)
-      return city destroyZone (c)
+      return city destroyZone (c)*/
     return false
   }
 

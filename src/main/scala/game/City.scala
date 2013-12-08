@@ -12,7 +12,7 @@ object City {
 class City(n: String) {
   var name: String = n
   var population: Int = 0
-  var map: Array[Array[Zone]] = Array.ofDim[Zone](12, 12)
+  var map: Array[Array[Zone]] = Array.ofDim[Zone](50, 50)
   var layers = new Layers
   var layerManager = new LayerManager(layers)
   var budget = new Budget(20000)
