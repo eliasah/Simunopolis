@@ -36,6 +36,10 @@ case class PoliceDepartement extends Zone {
 }
 
 case class Land(var children: List[Zone]) extends Zone {
-  def description = children.foreach(x => x.description)
+  def description = {
+    println("Land description : ")
+    children.foreach(x => x.description)
+  }
   def accept(v: ZoneVisitor) = description
+  def addChild(z: Zone) = children.::(z)
 }

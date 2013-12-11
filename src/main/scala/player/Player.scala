@@ -33,7 +33,7 @@ class Player(cityName: String) {
       prices += (zoneType -> price)
   }*/
   val visitor = new DisplayZoneVisitor
-  val city = Land
+  val city = Land(List())
   val time = new Time
   /**
    * Reserve une zone dans la ville si le budget est suffisant.
@@ -50,10 +50,27 @@ class Player(cityName: String) {
       })
     println(price)
     if (this.budget canPay price) {
-      this.budget pay price
-      val z: ResidentialZone = ResidentialZone("1")
-      z.accept(visitor)
-
+      this.budget pay price;
+      z match {
+        case BuildType.Commerce => {
+          val tmp = CommercialZone("")
+          tmp.accept(visitor)
+          city.addChild(tmp)
+          city.description
+        }
+        case BuildType.Industry => {
+          val tmp = IndustrialZone("")
+          tmp.accept(visitor)
+          city.addChild(tmp)
+          city.description
+        }
+        case BuildType.House => {
+          val tmp = ResidentialZone("")
+          tmp.accept(visitor)
+          city.addChild(tmp)
+          city.description
+        }
+      }
       return true
     }
 
@@ -66,9 +83,10 @@ class Player(cityName: String) {
    * @return true si la zone a ete detruite, false sinon
    */
   def destroy(c: Coordinates): Boolean = {
-    /*val price = prices("destruction")
-    if (city.budget canPay price)
-      return city destroyZone (c)*/
+    val price = prices("destruction")
+    if (this.budget canPay price)
+      // FIX ME 
+      println("Destroy")
     return false
   }
 
