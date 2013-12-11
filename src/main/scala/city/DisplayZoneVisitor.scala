@@ -8,7 +8,7 @@ class DisplayZoneVisitor extends ZoneVisitor {
     l.description
   }
 
-  def visit(lf: LeafZone) = {
+  /* def visit(lf: Zone) = {
     println("visiting leafzone")
     lf.description
     lf match {
@@ -16,5 +16,5 @@ class DisplayZoneVisitor extends ZoneVisitor {
       case c : CommercialZone => println("rouge")
       
     }
-  }
+  }*/
 }

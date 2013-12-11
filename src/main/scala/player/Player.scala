@@ -5,6 +5,7 @@ import scala.io.Source
 import scala.collection.mutable.HashMap
 import time.Time
 import enumeration._
+import city._
 
 /**
  * author : Isabelle Richard
@@ -18,6 +19,8 @@ class Player(cityName: String) {
   /**
    * Chargement des couts de construction et destruction.
    */
+
+  val budget = new Budget(20000) // initiale budget
   val prices = new HashMap[String, Int]
   prices += ("Commerce" -> 100)
   prices += ("Industry" -> 200)
@@ -29,10 +32,9 @@ class Player(cityName: String) {
       val price: Int = new Integer(words(1))
       prices += (zoneType -> price)
   }*/
-
-  val city = City.apply(cityName)
+  val visitor = new DisplayZoneVisitor
+  val city = Land
   val time = new Time
-
   /**
    * Reserve une zone dans la ville si le budget est suffisant.
    * @param z la zone a ajouter
@@ -47,9 +49,11 @@ class Player(cityName: String) {
         case BuildType.House => "House"
       })
     println(price)
-    if (city.budget canPay price) {
-      city.budget pay price
-      println("Appel Abstract Constructuin a faire pour " + z + " !!!!!!!!")
+    if (this.budget canPay price) {
+      this.budget pay price
+      val z: ResidentialZone = ResidentialZone("1")
+      z.accept(visitor)
+
       return true
     }
 

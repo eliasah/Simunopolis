@@ -9,7 +9,7 @@ object Main extends App {
 
     // Composite Test
     println("Composite without Visitor")
-    val tree1 = Land(List(Land(List(rz1,rz2,cz3))))
+    val tree1 = Land(List(Land(List(rz1, rz2, cz3))))
     println("description method call for object tree1")
     tree1.description
     println("------")
@@ -20,9 +20,6 @@ object Main extends App {
     // Display Visitor Test
     println("Visitor ")
     val v = new DisplayZoneVisitor
-    tree1.accept(v)
-    println("------")
-
     rz1.accept(v)
   }
 }

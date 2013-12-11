@@ -7,11 +7,11 @@ abstract class ZoneState(z: Zone) {
 
 class Catastrophy(z: Zone) extends ZoneState(z) {
 
-  def changeState(s: ZoneState) = println("change to catastrophy")
+  def changeState(s: ZoneState) = println("Catastrophy state")
   def operation { println(" Catastrophy "); }
 }
 
 class Calm(z: Zone) extends ZoneState(z) {
-  def changeState(s: ZoneState) = println("blablabla")
+  def changeState(s: ZoneState) = println("Calm state")
   def operation = println(" Calm ");
 }

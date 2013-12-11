@@ -1,16 +1,14 @@
 package city
 
 abstract class ZoneVisitor {
-  // solution classique
-  def visit(l: Land)
-  def visit(lf: LeafZone)
-  def visit(z: Zone) = z.accept(this)
-
   // solution par pattern matching
-  // def visit(z: Zone) =
-  //  z match {
-  //    case leaf: LeafZone => leaf.accept(this)
-  //    case land: Land => land.accept(this)
-  // }
+  def visit(z: Zone): Unit =
+    z match {
+      case ResidentialZone(_) => z.accept(this)
+      case CommercialZone(_) => z.accept(this)
+      case IndustrialZone(_) => z.accept(this)
+      case Land(_) => z.accept(this)
+      case _ => println("Warning! Invalid Action")
+    }
 
 }

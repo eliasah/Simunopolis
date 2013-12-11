@@ -14,11 +14,11 @@ import enumeration.BuildType
 import game.Coordinates
 
 class DataPanel(data: Array[Array[Color]], g: GUI) extends Panel {
-  
+
   listenTo(mouse.clicks, mouse.moves)
-  
+
   preferredSize_=(new Dimension(500, 500))
- /* var x = 0
+  /* var x = 0
   var y = 0
   var xold = 0
   var yold = 0*/
@@ -26,8 +26,8 @@ class DataPanel(data: Array[Array[Color]], g: GUI) extends Panel {
     case d: MouseDragged => {
       g.command match {
         case BuildType.Road => {
-        //  x = d.point.getX().toInt
-        //  y = d.point.getY().toInt
+          //  x = d.point.getX().toInt
+          //  y = d.point.getY().toInt
         }
         case _ =>
       }
@@ -59,7 +59,7 @@ class DataPanel(data: Array[Array[Color]], g: GUI) extends Panel {
       if (build) {
         data((e.point.getX() / 10).toInt)((e.point.getY() / 10).toInt) = g.color
         // maj du label du budget
-        g.budgetLabel.text_=("    " + g.mayor.city.budget.getbudget().toString)
+        g.budgetLabel.text_=("    " + g.mayor.budget.getbudget())
       }
       //xold = e.point.getX().toInt
       //yold = e.point.getY().toInt
@@ -69,7 +69,7 @@ class DataPanel(data: Array[Array[Color]], g: GUI) extends Panel {
     case e: MouseReleased => {
       g.command match {
         case BuildType.Road => {
-/*          println("xold : " + xold)
+          /*          println("xold : " + xold)
           println("yold : " + yold)
           println("x : " + x)
           println("y : " + y)*/
