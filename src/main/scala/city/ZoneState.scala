@@ -1,14 +1,17 @@
 package city
 
-abstract class ZoneState(s: ZoneState { def changeState(s: ZoneState) }) {
+abstract class ZoneState(z: Zone) {
+  def changeState(s: ZoneState)
   def operation
 }
 
-class Catastrophy(s: ZoneState { def changeState(s: ZoneState) })
-  extends ZoneState(s) {
-  def operation = println(" Catastrophy "); s.changeState(new Calm(s))
+class Catastrophy(z: Zone) extends ZoneState(z) {
+
+  def changeState(s: ZoneState) = println("change to catastrophy")
+  def operation { println(" Catastrophy "); }
 }
-class Calm(s: ZoneState { def changeState(s: ZoneState) })
-  extends ZoneState(s) {
-  def operation = println(" Calm "); s.changeState(new Catastrophy(s))
+
+class Calm(z: Zone) extends ZoneState(z) {
+  def changeState(s: ZoneState) = println("blablabla")
+  def operation = println(" Calm ");
 }

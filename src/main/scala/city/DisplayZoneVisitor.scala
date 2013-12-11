@@ -1,4 +1,4 @@
-package city
+ package city
 
 
 class DisplayZoneVisitor extends ZoneVisitor {
@@ -11,5 +11,10 @@ class DisplayZoneVisitor extends ZoneVisitor {
   def visit(lf: LeafZone) = {
     println("visiting leafzone")
     lf.description
+    lf match {
+      case r : ResidentialZone => println("bleu");
+      case c : CommercialZone => println("rouge")
+      
+    }
   }
 }

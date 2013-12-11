@@ -11,14 +11,27 @@ sealed abstract class Zone {
   def accept(v: ZoneVisitor)
 }
 
-abstract class LeafZone extends Zone() {}
-
-case class ResidentialZone(var d: String) extends LeafZone {
+case class ResidentialZone(var d: String) extends Zone {
   def description = println("Residential Zone " + d)
   def accept(v: ZoneVisitor) = v visit this
 }
-case class CommercialZone(var d: String) extends LeafZone {
+case class CommercialZone(var d: String) extends Zone {
   def description = println("Commercial Zone " + d)
+  def accept(v: ZoneVisitor) = v visit this
+}
+
+case class IndustrialZone(var d: String) extends Zone {
+  def description = println("Industrial Zone " + d)
+  def accept(v: ZoneVisitor) = v visit this
+}
+
+case class PowerPlant extends Zone {
+  def description = println("PowerPlant")
+  def accept(v: ZoneVisitor) = v visit this
+}
+
+case class PoliceDepartement extends Zone {
+  def description = println("Police Departement")
   def accept(v: ZoneVisitor) = v visit this
 }
 
