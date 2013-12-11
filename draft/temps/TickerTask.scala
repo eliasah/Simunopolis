@@ -1,9 +1,8 @@
 package temps
 
-class TickerTask extends java.util.TimerTask{
+class TickerTask extends java.util.TimerTask {
   
-  override def run()
-  {
+  override def run() {
     println("TICK")
   }
 

@@ -1,26 +1,20 @@
 package temps
 
-
-
 import java.util.Timer
+import java.util.TimerTask
 
 class Ticker {
   
   var timer: java.util.Timer= new java.util.Timer
-  var task: TickerTask= new TickerTask()
+  var task: TickerTask = new TickerTask()
   
+  // lancement du timer
   timer.scheduleAtFixedRate(task, 0, 2000)
-  
-
-  
-  def resetSpeed(speed: Long)= 
-  {
-    timer.cancel();
-    timer= new java.util.Timer()
     
-    timer.scheduleAtFixedRate(task,0 , speed)
+  // changement de la vitesse du timer
+  def resetSpeed(speed: Long) = {
+    task = new TickerTask()    
+    timer.scheduleAtFixedRate(task, 0, speed)
   }
   
- 
-
 }
