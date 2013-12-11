@@ -16,3 +16,5 @@
 	  -> Abstract class Zone (Component), Land (Composite) and LeafZone (ResidentialZone, IndustrialZone, etc.)
 	  -> Subject-Observer design pattern considering page 2 from Diagram Class document.
 	   
+2013/12/11 :
+- Integrate Timer (cf draft/temps) in the package Time
