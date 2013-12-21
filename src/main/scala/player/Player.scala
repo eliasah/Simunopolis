@@ -8,50 +8,52 @@ import enumeration._
 import city._
 
 /**
- * author : Isabelle Richard
+ * @author : Isabelle Richard
  */
-class Player(cityName: String) {
-  //A REVOIR 
-  /**
-   * Commande des destructions et construction
-   */
+class Player(var cityName: String) {
 
   /**
-   * Chargement des couts de construction et destruction.
+   * Gestion de la vitesse du jeu
    */
+  val time = new Time  
+  def slowSpeed = time changeSpeed SpeedType.Slow
+  def normalSpeed = time changeSpeed SpeedType.Normal
+  def fastSpeed = time changeSpeed SpeedType.Fast
+  def stopTimer = time stop
 
-  val budget = new Budget(20000) // initiale budget
-  val prices = new HashMap[String, Int]
-  prices += ("Commerce" -> 100)
-  prices += ("Industry" -> 200)
-  prices += ("House" -> 200)
-  /*Source.fromFile("conf/prices.conf").getLines.foreach {
-    line =>
-      val words = line.split(" ")
-      val zoneType: String = words(0)
-      val price: Int = new Integer(words(1))
-      prices += (zoneType -> price)
-  }*/
+  /**
+   * Budget initial du joueur
+   */
+  val budget = new Budget(20000)
+
+  /**
+   * Chargement des couts de construction et destruction
+   */
+  val prices = new HashMap[BuildType.Value, Int]
+  prices += (BuildType.Commerce -> 100)
+  prices += (BuildType.House -> 200)
+  prices += (BuildType.Industry -> 200)
+  prices += (BuildType.Road -> 10)
+  prices += (BuildType.Destroy -> 10)
+
   val visitor = new DisplayZoneVisitor
+
+  /**
+   * Ville du joueur
+   */
   val city = Land(List())
-  val time = new Time
+
   /**
    * Reserve une zone dans la ville si le budget est suffisant.
-   * @param z la zone a ajouter
-   * @param c les coordonnees de la zone a ajouter
-   * @return true si la zone a ete ajoutee, false sinon
+   * @param buildType le type de la zone a reserver
+   * @param cc les coordonnees de la zone a reserver
+   * @return true si la zone a ete reservee, false sinon
    */
-  def reserveZone(z: BuildType.Value, c: Coordinates): Boolean = {
-    val price = prices(
-      z match {
-        case BuildType.Commerce => "Commerce"
-        case BuildType.Industry => "Industry"
-        case BuildType.House => "House"
-      })
-    println(price)
+  def reserveZone(buildType: BuildType.Value, c: Coordinates): Boolean = {
+    val price = prices(buildType)
     if (this.budget canPay price) {
       this.budget pay price;
-      z match {
+      buildType match {
         case BuildType.Commerce => {
           val tmp = CommercialZone("")
           tmp.accept(visitor)
@@ -70,7 +72,9 @@ class Player(cityName: String) {
           city.addChild(tmp)
           city.description
         }
+        // TODO ajouter les autres types de zones reservables
       }
+      // TODO deduire l'argent utilise du budget du joueur
       return true
     }
 
@@ -83,15 +87,11 @@ class Player(cityName: String) {
    * @return true si la zone a ete detruite, false sinon
    */
   def destroy(c: Coordinates): Boolean = {
-    val price = prices("destruction")
+    val price = prices(BuildType.Destroy)
     if (this.budget canPay price)
-      // FIX ME 
+      // TODO
       println("Destroy")
     return false
   }
-
-  def slowDown() = time.slowDown()
-
-  def speedUp() = time.speedUp()
 
 }

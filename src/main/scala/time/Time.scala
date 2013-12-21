@@ -1,54 +1,62 @@
-/*
- * TODO 
- * faire en sorte que Time tourne en permanence, mais que l'on puisse 
- * a tout moment parametrer sa vitesse
- */
-
 package time
 
-class Time extends Runnable {
+import java.util.Timer
+import java.util.TimerTask
+import enumeration.SpeedType
 
-  abstract class Speed
-  case class SlowSpeed extends Speed
-  case class NormalSpeed extends Speed
-  case class FastSpeed extends Speed
+/**
+ * @author Isabelle Richard
+ */
 
-  var speed: Speed = new NormalSpeed
-  var year = 2000
+class Time {
 
-  val seconds = 2
+  var year = 2013
 
-  override def run() {
-    while (true) {
-      val milliseconds = 1000 * (speed match {
-        case s: SlowSpeed => seconds * 2
-        case s: NormalSpeed => seconds
-        case s: FastSpeed => seconds / 2
-      })
-      Thread sleep (milliseconds)
+  type Milliseconds = Long
+  var period: Milliseconds = 1000
+
+  var timer: java.util.Timer = new java.util.Timer
+
+  class TimeTask extends java.util.TimerTask {
+    override def run {
       year += 1
-      // avertir le moteur qu'il doit effectuer les mises à jour sur le modèle
-      println(year)
+      println("TODO: déclencher les mises a jour " +
+        "(période=" + period + ", année=" + year + ")")
     }
   }
 
-  def slowDown() = speed match {
-    case s: NormalSpeed => speed = new SlowSpeed
-    case s: FastSpeed => speed = new NormalSpeed
-    case s => Unit
+  timer scheduleAtFixedRate (new TimeTask, 0, period)
+
+  /**
+   * Modifie la vitesse de declenchement des taches
+   * @param speed vitesse a adopter
+   */
+  def changeSpeed(speed: SpeedType.Value) {
+    period = speed match {
+      case SpeedType.Slow => 5000
+      case SpeedType.Normal => 1000
+      case SpeedType.Fast => 200
+    }
+    timer scheduleAtFixedRate (new TimeTask, period, period)
+    println("La vitesse a été changée: " + period)
   }
 
-  def speedUp() = speed match {
-    case s: NormalSpeed => speed = new FastSpeed
-    case s: SlowSpeed => speed = new NormalSpeed
-    case s => Unit
-  }
+  /**
+   * Arrete l'execution du timer
+   */
+  def stop = timer cancel
 
 }
 
+// permet de tester le Timer
 object Main extends App {
   override def main(args: Array[String]) {
-    var t = new Time
-    t.run
+    var time: Time = new Time
+    Thread sleep 2000
+    println("Changement de la vitesse...")
+    time changeSpeed SpeedType.Slow
+    Thread sleep 2000
+    println("Arrêt du timer...")
+    time stop
   }
 }
