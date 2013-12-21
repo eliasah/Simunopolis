@@ -10,10 +10,11 @@ import scala.swing.event.MouseReleased
 import player.Player
 import game.Coordinates
 import enumeration.BuildType
+import javax.swing.WindowConstants
 
 /**
  * author: Christian Chiev
- * */
+ */
 object City {
   def main(args: Array[String]) {
     println("Simunopolis yeahhhhhhh")
@@ -37,6 +38,12 @@ class GUI(joueur: Player) extends SimpleSwingApplication {
   var color = java.awt.Color.WHITE
 
   def top = new MainFrame {
+
+    peer.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE)
+    override def closeOperation = {
+      mayor stopTimer;
+      exit(0)
+    }
 
     title = "Simunopolis";
     preferredSize_=(new Dimension(600, 600))
