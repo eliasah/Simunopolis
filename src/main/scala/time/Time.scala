@@ -49,7 +49,7 @@ class Time {
 }
 
 // permet de tester le Timer
-object Main extends App {
+/*object Main extends App {
   override def main(args: Array[String]) {
     var time: Time = new Time
     Thread sleep 2000
@@ -59,4 +59,4 @@ object Main extends App {
     println("Arrêt du timer...")
     time stop
   }
-}
+}*/

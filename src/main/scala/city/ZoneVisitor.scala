@@ -7,7 +7,7 @@ abstract class ZoneVisitor {
       case ResidentialZone(_) => z.accept(this)
       case CommercialZone(_) => z.accept(this)
       case IndustrialZone(_) => z.accept(this)
-      case Land(_) => z.accept(this)
+      //case Land(_) => z.accept(this)
       case _ => println("Warning! Invalid Action")
     }
 

@@ -1,5 +1,7 @@
 package city
 
+import game.Coordinates
+
 sealed abstract class Zone {
   var density: Int = 0
   var value: Int = 0
@@ -35,11 +37,17 @@ case class PoliceDepartement extends Zone {
   def accept(v: ZoneVisitor) = description
 }
 
-case class Land(var children: List[Zone]) extends Zone {
+case class Land extends Zone {
+  val table: TableZone = new TableZone(50, 50);
+  //var children : List[Zone] = new List[Zone]();
   def description = {
     println("Land description : ")
-    children.foreach(x => x.description)
+    //children.foreach(x => x.description)
   }
   def accept(v: ZoneVisitor) = description
-  def addChild(z: Zone) = children.::(z)
+  //def addChild(z: Zone) = children.::(z)
+  def add(z: Zone, c: Coordinates): Boolean = { return table add (z, c) }
+  def del(c: Coordinates): Boolean = {
+    return table del (c)
+  }
 }

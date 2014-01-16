@@ -15,7 +15,7 @@ class Player(var cityName: String) {
   /**
    * Gestion de la vitesse du jeu
    */
-  val time = new Time  
+  val time = new Time
   def slowSpeed = time changeSpeed SpeedType.Slow
   def normalSpeed = time changeSpeed SpeedType.Normal
   def fastSpeed = time changeSpeed SpeedType.Fast
@@ -41,7 +41,7 @@ class Player(var cityName: String) {
   /**
    * Ville du joueur
    */
-  val city = Land(List())
+  val city = Land()
 
   /**
    * Reserve une zone dans la ville si le budget est suffisant.
@@ -53,27 +53,16 @@ class Player(var cityName: String) {
     val price = prices(buildType)
     if (this.budget canPay price) {
       this.budget pay price;
-      buildType match {
-        case BuildType.Commerce => {
-          val tmp = CommercialZone("")
-          tmp.accept(visitor)
-          city.addChild(tmp)
-          city.description
-        }
-        case BuildType.Industry => {
-          val tmp = IndustrialZone("")
-          tmp.accept(visitor)
-          city.addChild(tmp)
-          city.description
-        }
-        case BuildType.House => {
-          val tmp = ResidentialZone("")
-          tmp.accept(visitor)
-          city.addChild(tmp)
-          city.description
-        }
+      val tmp = buildType match {
+        case BuildType.Commerce => CommercialZone("")
+        case BuildType.Industry => IndustrialZone("")
+        case BuildType.House =>    ResidentialZone("")
         // TODO ajouter les autres types de zones reservables
       }
+      tmp accept(visitor)
+      //city.addChild(tmp)
+      city.description
+      return city add (tmp,c)
       // TODO deduire l'argent utilise du budget du joueur
       return true
     }
