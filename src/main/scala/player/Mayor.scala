@@ -13,9 +13,11 @@ class Mayor(cityName: String) extends Player(cityName) {
     val budget = new Budget(20000)
 
     val prices = new HashMap[BuildType.Value, Int]
-    prices += (BuildType.Commerce -> 100)
+    prices += (BuildType.Commerce -> 200)
     prices += (BuildType.House -> 200)
     prices += (BuildType.Industry -> 200)
+    prices += (BuildType.PoliceDepartment -> 1000)
+    prices += (BuildType.PowerPlant -> 5000)
     prices += (BuildType.Road -> 10)
     prices += (BuildType.Destroy -> 10)
 

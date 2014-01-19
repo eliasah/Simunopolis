@@ -21,11 +21,11 @@ class Buttons(g: GUI) extends FlowPanel {
     contents += new Button(Action("Industrie") {
         g.command = BuildType.Industry;
     });
-    contents += new Button(Action("Caserne de police") {
-        g.command = BuildType.Commerce;
+    contents += new Button(Action("Poste de police") {
+        g.command = BuildType.PoliceDepartment;
     });
     contents += new Button(Action("Centrale nucléaire") {
-        g.command = BuildType.Industry;
+        g.command = BuildType.PowerPlant;
     });
     contents += new Button(Action("Route") {
         g.command = BuildType.Road;
