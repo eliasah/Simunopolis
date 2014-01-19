@@ -1,7 +1,4 @@
  package city
- 
- import city.ZoneLib._
-
 
 class DisplayZoneVisitor extends ZoneVisitor {
   def display(z: Zone) = z.description

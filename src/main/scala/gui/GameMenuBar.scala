@@ -21,7 +21,7 @@ class GameMenuBar(frame: Frame, mayor: Mayor) extends MenuBar {
         exit(0)
     }
     val newAct = Action("Nouvelle partie") {
-        mayor.city.apply()
+        // TODO
     }
     val chooser = new FileChooser
     val saveAct = Action("Enregistrer la partie") {

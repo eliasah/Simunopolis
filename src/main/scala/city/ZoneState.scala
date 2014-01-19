@@ -1,10 +1,8 @@
 package city
 
-import city.ZoneLib._
-
 abstract class ZoneState(z: Zone) {
-  def changeState(s: ZoneState)
-  def operation
+    def changeState(s: ZoneState)
+    def operation
 }
 
 /*class Catastrophy(z: Zone) extends ZoneState(z) {

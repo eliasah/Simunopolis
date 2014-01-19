@@ -5,7 +5,6 @@ import scala.collection.mutable.HashMap
 import time.Time
 import enumeration._
 import city._
-import city.ZoneLib._
 
 /**
  * @author : Isabelle Richard

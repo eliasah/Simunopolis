@@ -1,29 +1,16 @@
 package city
 
 import game.Coordinates
-import city.ZoneLib._
 
-object ZoneLib extends SubjectObserver {
+sealed abstract class Zone {
+    var density: Int = 0
+    var value: Int = 0
+    var crime: Int = 0
+    var pollution: Int = 0
+    var growth: Int = 0
 
-    type S = Zone
-    type O = ZoneObserver
-
-    sealed abstract class Zone extends Subject {
-        var density: Int = 0
-        var value: Int = 0
-        var crime: Int = 0
-        var pollution: Int = 0
-        var growth: Int = 0
-
-        def description
-        def accept(v: ZoneVisitor): Unit
-
-        def apply() = notifyObservers
-    }
-
-    abstract class ZoneObserver extends Observer {
-        def onNotify(s: S)
-    }
+    def description
+    def accept(v: ZoneVisitor): Unit
 
 }
 

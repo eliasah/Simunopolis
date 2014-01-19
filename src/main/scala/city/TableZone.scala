@@ -1,7 +1,6 @@
 package city
 
 import game.Coordinates
-import city.ZoneLib._
 
 class TableZone(i: Int, j: Int) {
     val data = Array.ofDim[Zone](i, j)

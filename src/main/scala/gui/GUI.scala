@@ -9,7 +9,8 @@ import player.Mayor
 import game.Coordinates
 import enumeration.BuildType
 import javax.swing.WindowConstants
-import city.ZoneLib._
+import city.Zone
+import time._
 
 /**
  * @author: Christian Chiev
@@ -23,11 +24,19 @@ object City {
 
 class GUI(player: Mayor) extends SimpleSwingApplication with Observer {
 
-    def onNotify(zone: Zone) = println("GUI sees " + zone.density)
+    def onNotify(s: Subject) = s match {
+        case time: Time =>
+            yearLabel.text_=("    " + mayor.time.year)
+    }
 
     //Tableau de case
     val mayor: Mayor = player
     val data = Array.ofDim[Color](50, 50)
+
+    /**
+     * Enregistrement de la GUI comme observateur du temps du joueur
+     */
+    mayor.time.register(this)
 
     var command: BuildType.Value = BuildType.Empty
     val budgetLabel: Label = new Label("    20000")

@@ -8,16 +8,13 @@ import enumeration.SpeedType
  * @author Isabelle Richard
  */
 
-class Time {
+class Time extends Subject {
 
     class TimeTask extends java.util.TimerTask {
         override def run {
             year += 1
             println("Nouvelle année " + year)
-            /*
-             * TODO 
-             * avertir God et GUI que l'annee a ete modifiee
-             */
+            notifyObservers
         }
     }
 
