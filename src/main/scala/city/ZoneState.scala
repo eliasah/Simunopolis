@@ -1,5 +1,7 @@
 package city
 
+import city.ZoneLib._
+
 abstract class ZoneState(z: Zone) {
   def changeState(s: ZoneState)
   def operation

@@ -3,57 +3,62 @@ package gui
 import scala.swing._
 import java.awt.Dimension
 import scala.swing.event.MouseClicked
-import scala.swing.event.MouseClicked
-import scala.swing.event.MouseClicked
 import scala.swing.event.MouseDragged
 import scala.swing.event.MouseReleased
-import player.Player
+import player.Mayor
 import game.Coordinates
 import enumeration.BuildType
 import javax.swing.WindowConstants
+import city.ZoneLib._
 
 /**
- * author: Christian Chiev
+ * @author: Christian Chiev
  */
 object City {
-  def main(args: Array[String]) {
-    println("Simunopolis yeahhhhhhh")
-    new GUI(new Player("MyCity")).top
-  }
+    def main(args: Array[String]) {
+        println("Simunopolis yeahhhhhhh")
+        new GUI(new Mayor("MyCity")).top
+    }
 }
 
-class GUI(joueur: Player) extends SimpleSwingApplication {
-  //Tableau de case
-  val mayor: Player = joueur;
-  val data = Array.ofDim[Color](50, 50)
+class GUI(player: Mayor) extends SimpleSwingApplication with Observer {
 
-  var command: BuildType.Value = BuildType.Empty
-  val budgetLabel: Label = new Label("    20000")
-  // variable du point de depart et d'arrive en trainant la souris
+    def onNotify(zone: Zone) = println("GUI sees " + zone.density)
 
-  val graph = new DataPanel(data, this)
-  val buttons: Buttons = new Buttons(this)
-  val information: InformationPanel = new InformationPanel(this)
-  // initialisation de la couleur à blanc
-  var color = java.awt.Color.WHITE
+    //Tableau de case
+    val mayor: Mayor = player
+    val data = Array.ofDim[Color](50, 50)
 
-  def top = new MainFrame {
+    var command: BuildType.Value = BuildType.Empty
+    val budgetLabel: Label = new Label("    20000")
+    // variable du point de depart et d'arrive en trainant la souris
+    val yearLabel: Label = new Label("    2014")
 
-    peer.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE)
-    override def closeOperation = {
-      mayor stopTimer;
-      exit(0)
+    val graph = new DataPanel(data, this)
+    val buttons: Buttons = new Buttons(this)
+    val information: InformationPanel = new InformationPanel(this)
+    // initialisation de la couleur à blanc
+    var color = java.awt.Color.WHITE
+
+    def top = new MainFrame {
+
+        menuBar = GameMenuBar.apply(this, mayor)
+
+        peer.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE)
+        override def closeOperation = {
+            mayor.stopTimer
+            exit(0)
+        }
+
+        title = "Simunopolis";
+        preferredSize_=(new Dimension(1000, 600))
+        // Panel principale
+        var fenetrePrincipal = new FlowPanel() {
+            contents += information
+            contents += graph
+            contents += buttons
+        }
+        contents = fenetrePrincipal
+        visible_=(true)
     }
-
-    title = "Simunopolis";
-    preferredSize_=(new Dimension(600, 600))
-    // Panel principale
-    var fenetrePrincipal = new FlowPanel() {
-      contents += information
-      contents += graph
-      contents += buttons
-    }
-    contents = fenetrePrincipal
-    visible_=(true)
-  }
 }

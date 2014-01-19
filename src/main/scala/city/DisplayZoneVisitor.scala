@@ -1,4 +1,6 @@
  package city
+ 
+ import city.ZoneLib._
 
 
 class DisplayZoneVisitor extends ZoneVisitor {

@@ -1,5 +1,7 @@
 package city
 
+import city.ZoneLib._
+
 abstract class ZoneVisitor {
   // solution par pattern matching
   def visit(z: Zone): Unit =

@@ -1,18 +1,19 @@
 package game
 
-class Budget(initialBudget : Int) {
+class Budget(private var budget : Int) {
 
-  private var budget: Int = initialBudget
-
-  def canPay(sumOfMoney: Int): Boolean = {
-    println("canPay"+ budget)
-    return budget >= sumOfMoney
-  }
-  def pay(less:Int){
-    budget -=less
-    println("Pay"+ budget)
-  }
-  def getbudget():Int ={
-    return budget
-  }
+    /**
+     * Verifie que le budget actuel permet de depenser une somme.
+     * @param sumOfMoney la somme a payer
+     * @return
+     */
+    def canPay(sumOfMoney: Int): Boolean = {
+        return budget >= sumOfMoney
+    }
+    def pay(less: Int): Unit = {
+        budget -= less
+    }
+    def getbudget(): Int = {
+        return budget
+    }
 }
