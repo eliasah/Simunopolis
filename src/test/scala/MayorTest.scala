@@ -9,7 +9,7 @@ import player.Mayor
  */
 
 class MayorTest extends FlatSpec with BeforeAndAfter {
-  var p = new Mayor("TestCity")
+  /*var p = new Mayor("TestCity")
 
   after {
 	  p stopTimer
@@ -21,6 +21,6 @@ class MayorTest extends FlatSpec with BeforeAndAfter {
 
   "a new city" should "have at least one zone" in {
    // assert(p.city.children.size > 0)
-  }
+  }*/
 
 }
