@@ -39,7 +39,7 @@ case class PoliceDepartment extends Zone {
     def accept(v: ZoneVisitor) = description
 }
 
-case class Land extends Zone {
+case class Land extends Zone with Subject {
     val table: TableZone = new TableZone(50, 50)
     //var children : List[Zone] = new List[Zone]();
     def description = {
@@ -53,6 +53,14 @@ case class Land extends Zone {
     }
     def del(c: Coordinates): Boolean = {
         return table del (c)
+    }
+    def increaseDensity(d: Int) {
+        table.data.foreach(line => line.foreach(z => if (z != null) density += d))
+        notifyObservers
+    }
+    def decreaseDensity(d: Int) {
+        table.data.foreach(line => line.foreach(z => if (z != null) density -= d))
+        notifyObservers
     }
 }
 

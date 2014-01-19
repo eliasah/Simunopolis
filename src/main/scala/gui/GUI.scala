@@ -1,15 +1,17 @@
 package gui
 
-import scala.swing._
 import java.awt.Dimension
+import javax.swing.WindowConstants
+import scala.swing._
 import scala.swing.event.MouseClicked
 import scala.swing.event.MouseDragged
 import scala.swing.event.MouseReleased
-import player.Mayor
-import game.Coordinates
-import enumeration.BuildType
-import javax.swing.WindowConstants
+
 import city.Zone
+import enumeration._
+import game._
+import player._
+import simulationMotor._
 import time._
 
 /**
@@ -17,20 +19,21 @@ import time._
  */
 object City {
     def main(args: Array[String]) {
-        println("Simunopolis yeahhhhhhh")
         new GUI(new Mayor("MyCity")).top
     }
 }
 
-class GUI(player: Mayor) extends SimpleSwingApplication with Observer {
+class GUI(player: Mayor) extends SimpleSwingApplication with time.Observer {
 
     def onNotify(s: Subject) = s match {
         case time: Time =>
             yearLabel.text_=("    " + mayor.time.year)
+            populationLabel.text_=("    " + mayor.city.density)
     }
 
     //Tableau de case
     val mayor: Mayor = player
+    val god: God = new God(mayor)
     val data = Array.ofDim[Color](50, 50)
 
     /**
@@ -39,6 +42,7 @@ class GUI(player: Mayor) extends SimpleSwingApplication with Observer {
     mayor.time.register(this)
 
     var command: BuildType.Value = BuildType.Empty
+    val populationLabel: Label = new Label("     0")
     val budgetLabel: Label = new Label("    20000")
     // variable du point de depart et d'arrive en trainant la souris
     val yearLabel: Label = new Label("    2014")

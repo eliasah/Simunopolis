@@ -40,9 +40,9 @@ class GameMenuBar(frame: Frame, mayor: Mayor) extends MenuBar {
         mayor.fastSpeed
     }
     contents += new Menu("Fichier") {
-        contents += new MenuItem(newAct)
+        /*contents += new MenuItem(newAct)
         contents += new MenuItem(saveAct)
-        contents += new Separator
+        contents += new Separator*/
         contents += new MenuItem(exitAct)
     }
     contents += new Menu("Vitesse du jeu") {
@@ -50,7 +50,7 @@ class GameMenuBar(frame: Frame, mayor: Mayor) extends MenuBar {
         contents += new MenuItem(normalAct)
         contents += new MenuItem(fastAct)
     }
-    contents += new Menu("Aide") {
+    /*contents += new Menu("Aide") {
         contents += new MenuItem("À propos")
-    }
+    }*/
 }

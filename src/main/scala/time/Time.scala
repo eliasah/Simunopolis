@@ -13,7 +13,6 @@ class Time extends Subject {
     class TimeTask extends java.util.TimerTask {
         override def run {
             year += 1
-            println("Nouvelle année " + year)
             notifyObservers
         }
     }
@@ -21,11 +20,12 @@ class Time extends Subject {
     type Milliseconds = Long
     var year = 2013
     val normalPeriod: Milliseconds = 5000
+    val delay: Long = 0
     var period: Milliseconds = normalPeriod
     var task: TimerTask = new TimeTask
     var timer: java.util.Timer = new java.util.Timer
 
-    timer scheduleAtFixedRate (task, 0, period)
+    timer scheduleAtFixedRate (task, delay, period)
 
     /**
      * Modifie la vitesse de declenchement des taches
@@ -40,7 +40,7 @@ class Time extends Subject {
             case SpeedType.Fast => normalPeriod / 5
         }
         task = new TimeTask
-        timer scheduleAtFixedRate (task, 0, period)
+        timer scheduleAtFixedRate (task, delay, period)
     }
 
     /**
