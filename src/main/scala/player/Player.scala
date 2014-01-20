@@ -9,7 +9,7 @@ import city._
 /**
  * @author : Isabelle Richard
  */
-abstract class Player(var cityName: String, val time: Time) {
+abstract class Player(var cityName: String) {
 
   /**
    * Visiteur
@@ -17,8 +17,14 @@ abstract class Player(var cityName: String, val time: Time) {
   val visitor = new DisplayZoneVisitor
 
   /**
+   * Ville du joueur
+   */
+  val city: Land
+
+  /**
    * Gestion de la vitesse du jeu
    */
+  def time = city.time
   def slowSpeed = time resetSpeed SpeedType.Slow
   def normalSpeed = time resetSpeed SpeedType.Normal
   def fastSpeed = time resetSpeed SpeedType.Fast
@@ -28,11 +34,6 @@ abstract class Player(var cityName: String, val time: Time) {
    * Chargement des couts de construction et destruction
    */
   val prices: HashMap[BuildType.Value, Int]
-
-  /**
-   * Ville du joueur
-   */
-  val city: Land
 
   /**
    * Reserve une zone dans la ville si le budget est suffisant.

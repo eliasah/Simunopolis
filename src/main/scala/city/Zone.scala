@@ -52,6 +52,7 @@ case class Land extends Zone with Subject with Population {
   setMax(0)
   val budget:Budget = new Budget(20000,200,5)
   //var children : List[Zone] = new List[Zone]();
+  
   def description = {
     println("Land description : ")
     //children.foreach(x => x.description)
@@ -70,7 +71,6 @@ case class Land extends Zone with Subject with Population {
       totalZone += 1
     }
     return result
-
   }
   def del(c: Coordinates): Boolean = {
     return table del (c)
