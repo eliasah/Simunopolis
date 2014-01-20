@@ -2,6 +2,7 @@ package city
 
 import game.Coordinates
 import com.sun.java.util.jar.pack.PopulationCoding
+import time.Time
 
 sealed abstract class Zone {
   var density: Int = 0
@@ -46,8 +47,10 @@ case class Land extends Zone with Subject with Population {
   var commercial = 0
   var police = 0
   var totalZone = 0
+  var time = new Time
   setMax(0)
   //var children : List[Zone] = new List[Zone]();
+  
   def description = {
     println("Land description : ")
     //children.foreach(x => x.description)
@@ -66,7 +69,6 @@ case class Land extends Zone with Subject with Population {
       totalZone += 1
     }
     return result
-
   }
   def del(c: Coordinates): Boolean = {
     return table del (c)

@@ -24,10 +24,9 @@ object City {
 }
 
 class GUI(nom: String) extends SimpleSwingApplication with time.Observer {
-  val time: Time = new Time()
-  val mayor: Mayor = new Mayor(nom, time)
+  val mayor: Mayor = new Mayor(nom)
   val god: God = new God(mayor.city)
-  time setGod god
+  val time: Time = mayor.city.time
   
   def onNotify(s: Subject) = s match {
     case time: Time =>
