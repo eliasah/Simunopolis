@@ -9,7 +9,7 @@ import time.Time
 /**
  * @author : Isabelle Richard
  */
-class Mayor(cityName: String, time: Time) extends Player(cityName, time) {
+class Mayor(cityName: String) extends Player(cityName) {
 
   val prices = new HashMap[BuildType.Value, Int]
   prices += (BuildType.Commerce -> 200)
