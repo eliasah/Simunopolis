@@ -66,7 +66,7 @@ class DataPanel(data: Array[Array[Color]], g: GUI) extends Panel {
             if (build || destroy) {
                 data((e.point.getX() / 10).toInt)((e.point.getY() / 10).toInt) = g.color
                 // maj du label du budget
-                g.budgetLabel.text_=("    " + g.mayor.budget.getbudget())
+                g.information.budgetLabel.text_=("    " + g.mayor.city.budget.getbudget())
             }
 
             //xold = e.point.getX().toInt

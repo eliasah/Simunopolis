@@ -25,11 +25,6 @@ abstract class Player(var cityName: String, val time: Time) {
   def stopTimer = time stop
 
   /**
-   * Budget initial du joueur
-   */
-  val budget: Budget
-
-  /**
    * Chargement des couts de construction et destruction
    */
   val prices: HashMap[BuildType.Value, Int]

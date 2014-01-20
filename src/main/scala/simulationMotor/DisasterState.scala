@@ -14,5 +14,6 @@ class DisasterState(city: Land) extends CityState {
         city.table.data(y)(z) = null
       }
     state.changeState(new PeacefulState(city))
+    state tax city
   }
 }

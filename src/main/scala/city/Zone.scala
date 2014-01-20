@@ -2,6 +2,8 @@ package city
 
 import game.Coordinates
 import com.sun.java.util.jar.pack.PopulationCoding
+import game.Budget
+import time.Time
 
 sealed abstract class Zone {
   var density: Int = 0
@@ -46,7 +48,9 @@ case class Land extends Zone with Subject with Population {
   var commercial = 0
   var police = 0
   var totalZone = 0
+  var time = new Time
   setMax(0)
+  val budget:Budget = new Budget(20000,200,5)
   //var children : List[Zone] = new List[Zone]();
   def description = {
     println("Land description : ")

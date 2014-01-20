@@ -13,5 +13,6 @@ class PeacefulState(city: Land) extends CityState {
 
     if (city.police * 24 < city.getPopulation)
       state.changeState(new CrimeState(city))
+    state tax city
   }
 }

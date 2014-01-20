@@ -31,8 +31,9 @@ class GUI(nom: String) extends SimpleSwingApplication with time.Observer {
   
   def onNotify(s: Subject) = s match {
     case time: Time =>
-      yearLabel.text_=("    " + mayor.time.year)
-      populationLabel.text_=("    " + mayor.city.getPopulation)
+      information.yearLabel.text_=("    " + mayor.time.year)
+      information.populationLabel.text_=("    " + mayor.city.getPopulation)
+      information.budgetLabel.text_=("    "+mayor.city.budget.getbudget)
   }
 
   //Tableau de case
@@ -45,10 +46,7 @@ class GUI(nom: String) extends SimpleSwingApplication with time.Observer {
   time.register(this)
 
   var command: BuildType.Value = BuildType.Empty
-  val populationLabel: Label = new Label("     0")
-  val budgetLabel: Label = new Label("    20000")
-  // variable du point de depart et d'arrive en trainant la souris
-  val yearLabel: Label = new Label("    2014")
+
 
   val graph = new DataPanel(data, this)
   val buttons: Buttons = new Buttons(this)
