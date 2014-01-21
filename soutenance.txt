@@ -1,17 +1,35 @@
-		Use case 
+CHRISTIAN	Use case 
 CHRISTIAN	Démonstration
-		Diagrammes de séquence
+...		Diagrammes de séquence
 ELIAS		UML : présentation générale
-		Design patterns implémentés:
+----------------Design patterns implémentés:
 ISABELLE		composite
 ISABELLE		sujet/observateur
 CHRISTIAN		état
 ELIAS			visiteur
-		Extensions possibles ou non :
-			ajouter les évènements, types de terrain et bâtiments
+----------------Extensions possibles ou non :
+ISABELLE		ajouter les évènements, types de terrain et bâtiments
 ELIAS			supporter un autre toolkit graphique
 			réseaux non contigüs
 			géolocaliser l'origine des paramètres
 			support de plusieurs villes
 			déploiement client-serveur
 ELIAS		Expliquer pourquoi l'architecture en couches pose problème
+
+===============================================================================
+
+EXTENSIONS : 
+1) ajouter les évènements, types de terrain et bâtiments
+2) supporter un autre toolkit graphique
+3) réseaux non contigüs
+4) géolocaliser l'origine des paramètres
+5) support de plusieurs villes
+6) déploiement client-serveur
+
+Démonstration
+Expliquer comment la conception a été faite (use case, diagrammes de séquence)
+Présentation générale de l'UML
+Explication du design pattern composite + intérêt pour l'extension (1)
+Explication du design pattern sujet/observateur
+Explication du design pattern état + description détaillée du code
+Explication du design pattern visiteur + intérêt pour l'extension (2)
