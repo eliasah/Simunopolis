@@ -18,9 +18,7 @@ class God(var mycity: Land) extends time.Observer with city.Observer {
     var state: CurrentCityState = new CurrentCityState(new PeacefulState(mycity))
 
     def onNotify(s: time.Subject) = s match {
-        case time: Time => // FIXME
-            // increaseDensity
-            action
+        case time: Time => action
     }
     def onNotify(s: city.Subject) = s match {
         case land: Land => // FIXME
@@ -33,8 +31,5 @@ class God(var mycity: Land) extends time.Observer with city.Observer {
     mycity.time.register(this)
     mycity.register(this)
 
-    //def increaseDensity() = mayor.city.increaseDensity(1)
-    //def decreaseDensity() = mayor.city.decreaseDensity(1)
-
-    def action() = state.Action
+    def action() = state.action
 }

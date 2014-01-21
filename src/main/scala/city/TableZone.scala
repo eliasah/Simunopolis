@@ -15,7 +15,7 @@ class TableZone(i: Int, j: Int) {
      * @param c les coordonnees de la zone
      * @return
      */
-    def add(z: Zone, c: Coordinates): Boolean = {
+    def addZone(z: Zone, c: Coordinates): Boolean = {
         if (c.x >= 0 && c.x < i && !(data(c.x)(c.y).isInstanceOf[Zone])) {
             data(c.x)(c.y) = z;
             return true
@@ -28,7 +28,7 @@ class TableZone(i: Int, j: Int) {
      * @param c les coordonnees de la zone
      * @return
      */
-    def del(c: Coordinates): Boolean = {
+    def deleteZone(c: Coordinates): Boolean = {
         if (data(c.x)(c.y).isInstanceOf[Zone]) {
             data(c.x)(c.y) = null
             return true

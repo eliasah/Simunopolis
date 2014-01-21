@@ -33,8 +33,7 @@ class Mayor(cityName: String) extends Player(cityName) {
         case BuildType.PoliceDepartment => PoliceDepartment()
       }
       tmp accept (visitor)
-      //city.addChild(tmp)
-      if (city add (tmp, c)) {
+      if (city addZone (tmp, c)) {
         city.budget pay price
         return true
       }
@@ -45,7 +44,7 @@ class Mayor(cityName: String) extends Player(cityName) {
   def destroy(c: Coordinates): Boolean = {
     val price = prices(BuildType.Destroy)
     if (city.budget canPay price) {
-      if (city del c) {
+      if (city deleteZone c) {
         city.budget pay price
         return true
       }
