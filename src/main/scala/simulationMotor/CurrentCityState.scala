@@ -2,6 +2,10 @@ package simulationMotor
 
 import city.Land
 
+/**
+ * @author Christian Chiev
+ *
+ */
 class CurrentCityState(var currentState: CityState) {
 
   def changeState(newState: CityState) {

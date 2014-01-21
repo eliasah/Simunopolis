@@ -1,5 +1,9 @@
 package city
 
+/**
+ * @author Elias Abou Haydar
+ *
+ */
 abstract class ZoneVisitor {
     // solution par pattern matching
     def visit(z: Zone): Unit =

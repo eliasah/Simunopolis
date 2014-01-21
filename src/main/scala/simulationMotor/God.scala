@@ -10,6 +10,10 @@ import time.Subject
 import time.Time
 import city.Subject
 
+/**
+ * @author Isabelle Richard
+ *
+ */
 class God(var mycity: Land) extends time.Observer with city.Observer {
     var state: CurrentCityState = new CurrentCityState(new PeacefulState(mycity))
 

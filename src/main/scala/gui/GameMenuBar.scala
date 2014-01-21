@@ -9,6 +9,10 @@ import scala.swing.Action
 import scala.swing._
 import player._
 
+/**
+ * @author Isabelle Richard
+ *
+ */
 object GameMenuBar {
     def apply(frame: scala.swing.Frame, mayor: Mayor) = {
         new GameMenuBar(frame, mayor)

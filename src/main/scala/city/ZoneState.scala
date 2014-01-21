@@ -1,5 +1,9 @@
 package city
 
+/**
+ * @author Elias Abou Haydar
+ *
+ */
 abstract class ZoneState(z: Zone) {
     def changeState(s: ZoneState)
     def operation

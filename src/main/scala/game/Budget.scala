@@ -1,5 +1,9 @@
 package game
 
+/**
+ * @author Isabelle Richard
+ *
+ */
 class Budget(private var budget: Int, private var maxTax: Int, private var moneyTax: Int) {
 
   /**

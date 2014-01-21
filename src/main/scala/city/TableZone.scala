@@ -2,6 +2,10 @@ package city
 
 import game.Coordinates
 
+/**
+ * @author Christian Chiev
+ *
+ */
 class TableZone(i: Int, j: Int) {
     val data = Array.ofDim[Zone](i, j)
 

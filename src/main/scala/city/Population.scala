@@ -1,5 +1,9 @@
 package city
 
+/**
+ * @author Christian Chiev
+ *
+ */
 trait Population {
   private var population = 0
   private var max = 12

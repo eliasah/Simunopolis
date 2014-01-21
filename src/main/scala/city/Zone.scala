@@ -5,6 +5,10 @@ import com.sun.java.util.jar.pack.PopulationCoding
 import game.Budget
 import time.Time
 
+/**
+ * @author Elias Abou Haydar
+ *
+ */
 sealed abstract class Zone {
   var density: Int = 0
   var value: Int = 0

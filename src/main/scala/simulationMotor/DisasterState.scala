@@ -3,6 +3,10 @@ package simulationMotor
 import city.Land
 import city.Zone
 
+/**
+ * @author Christian Chiev
+ *
+ */
 class DisasterState(city: Land) extends CityState {
 
   override def doAction(state: CurrentCityState) = {

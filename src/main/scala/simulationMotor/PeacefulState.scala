@@ -2,6 +2,10 @@ package simulationMotor
 
 import city.Land
 
+/**
+ * @author Christian Chiev
+ *
+ */
 class PeacefulState(city: Land) extends CityState {
   override def doAction(state: CurrentCityState) = {
     var total = city.getPopulation + (city.getPopulation.asInstanceOf[Int] * 10 / 100) + 1

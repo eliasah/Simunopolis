@@ -1,7 +1,7 @@
 package gui
 
 /**
- * author: Christian Chiev
+ * @author: Christian Chiev
  */
 import scala.swing.FlowPanel
 import scala.swing.Label
