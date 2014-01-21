@@ -1,0 +1,17 @@
+		Use case 
+CHRISTIAN	Démonstration
+		Diagrammes de séquence
+ELIAS		UML : présentation générale
+		Design patterns implémentés:
+ISABELLE		composite
+ISABELLE		sujet/observateur
+CHRISTIAN		état
+ELIAS			visiteur
+		Extensions possibles ou non :
+			ajouter les évènements, types de terrain et bâtiments
+ELIAS			supporter un autre toolkit graphique
+			réseaux non contigüs
+			géolocaliser l'origine des paramètres
+			support de plusieurs villes
+			déploiement client-serveur
+ELIAS		Expliquer pourquoi l'architecture en couches pose problème
