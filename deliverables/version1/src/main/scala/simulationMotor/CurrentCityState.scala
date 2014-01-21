@@ -1,0 +1,20 @@
+package simulationMotor
+
+import city.Land
+
+/**
+ * @author Christian Chiev
+ *
+ */
+class CurrentCityState(var currentState: CityState) {
+
+    def changeState(newState: CityState) {
+        currentState = newState
+    }
+    def action = currentState.doAction(this)
+
+    def tax(city: Land) = {
+        city.budget increaseBudget (city.getPopulation *
+            city.budget.getMoneyTax * city.budget.getPercent / 100)
+    }
+}
